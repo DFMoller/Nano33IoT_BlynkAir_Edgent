@@ -9,12 +9,12 @@
  */
 
 // Fill-in information from your Blynk Template here
-#define BLYNK_TEMPLATE_ID "TMPL77bT-mht"
-#define BLYNK_DEVICE_NAME "EdgentTestbench"
+// #define BLYNK_TEMPLATE_ID ""
+// #define BLYNK_DEVICE_NAME ""
 
 #include <Arduino.h>
 
-#define BLYNK_FIRMWARE_VERSION        "0.1.3"
+#define BLYNK_FIRMWARE_VERSION        "0.1.0"
 
 #define BLYNK_PRINT Serial
 //#define BLYNK_DEBUG
