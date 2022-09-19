@@ -31,11 +31,28 @@
   #define BOARD_LED_INVERSE           false
   #define BOARD_LED_BRIGHTNESS        64
 
+#elif defined(USE_NANO_33_IOT)
+
+  // Button settings - The button is used to clear the stored network credentials on the device
+  //                    if it has already been set up and if you want to reconfigure the device 
+  //                    to use a different network when the initial network is out of range and 
+  //                    the Nano33IoT's reconfiguration cannot be initiated from the app
+  #define BOARD_BUTTON_PIN            4           // Need to wire an external button for Nano 33 IoT
+  #define BOARD_BUTTON_ACTIVE_LOW     true        // true if button is "active-low"
+
+  #define BOARD_LED_PIN               13          // Set LED pin - if you have a single-color LED attached
+  //#define BOARD_LED_PIN_R           15          // Set R,G,B pins - if your LED is PWM RGB
+  //#define BOARD_LED_PIN_G           12
+  //#define BOARD_LED_PIN_B           13
+  //#define BOARD_LED_PIN_WS2812      4           // Set if your LED is WS2812 RGB
+  #define BOARD_LED_INVERSE           false       // true if LED is common anode, false if common cathode
+  #define BOARD_LED_BRIGHTNESS        255         // 0..255 brightness control
+
 #else
 
   #warning "Custom board configuration is used"
 
-  #define BOARD_BUTTON_PIN            0                     // Pin where user button is attached
+  #define BOARD_BUTTON_PIN            4                     // Reconfigure button
   #define BOARD_BUTTON_ACTIVE_LOW     true                  // true if button is "active-low"
 
   #define BOARD_LED_PIN               13                     // Set LED pin - if you have a single-color LED attached
@@ -59,7 +76,7 @@
 #define BOARD_PWM_MAX                 255
 
 #if !defined(CONFIG_DEVICE_PREFIX)
-#define CONFIG_DEVICE_PREFIX          "Nano33IoTV2"
+#define CONFIG_DEVICE_PREFIX          ""
 #endif
 #if !defined(CONFIG_AP_URL)
 #define CONFIG_AP_URL                 "blynk.setup"
@@ -81,7 +98,7 @@
 //#define USE_TICKER
 //#define USE_TIMER_ONE
 //#define USE_TIMER_THREE
-#define USE_TIMER_FIVE
+#define USE_TIMER_FIVE // Timer5 is the only option tested for the Nano 33 IoT!
 //#define USE_PTHREAD
 
 #define BLYNK_NO_DEFAULT_BANNER
